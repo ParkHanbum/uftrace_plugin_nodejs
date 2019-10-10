@@ -25,9 +25,15 @@ uftrace_plugin_nodejs has dependencies for below libraries:
 * `uftrace`
 
 # Build
-    $ make 
-    
+if you have uftrace that contain the plugin feature.
 
+    $ make UFTRACE_HOME=<uftrace_home_path>
+
+if not, you must clone the uftrace with plugin feature first.
+
+    $ git clone -b dev_plugin https://github.com/ParkHanbum/uftrace.git uftrace
+    $ make UFTRACE_HOME=uftrace
+    
 # how it works
 Uftrace_plugin_nodejs manipulate argument when v8::internal::JavaScriptFrame::PrintTop called. as the result of manipulated argument, v8::internal::JavaScriptFrame::PrintTop function pass the currently called javascript function name to uftrace_plugin_nodejs.
 
